@@ -1,0 +1,23 @@
+{
+  "name": "@next-auth-collections/prettier-config",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./index.mjs",
+  "module": "./index.mjs",
+  "exports": {
+    ".": {
+      "default": "./index.mjs"
+    }
+  },
+  "dependencies": {
+    "prettier-plugin-tailwindcss": "catalog:",
+    "prettier": "catalog:"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@next-auth-collections/tsconfig",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "files": [
+    "base.json",
+    "node.json",
+    "web.json"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
