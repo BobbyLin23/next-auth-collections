@@ -1,13 +1,20 @@
-import { defineBuildConfig } from "unbuild";
+import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
+  entries: ['src/index'],
   clean: true,
   declaration: true,
-  entries: [
-    {
-      builder: "mkdist",
-      input: './src',
-      pattern: ['**/*']
+  rollup: {
+    emitCJS: true,
+    inlineDependencies: true,
+    esbuild: {
+      jsx: 'automatic',
     },
-  ]
+  },
+  externals: [
+    'react',
+    'react-dom',
+    'tailwindcss',
+    '@next-auth-collections/shared',
+  ],
 })

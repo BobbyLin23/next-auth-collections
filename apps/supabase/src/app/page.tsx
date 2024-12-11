@@ -1,20 +1,37 @@
-import { redirect } from 'next/navigation'
+import { Poppins } from 'next/font/google'
 
-import { createClient } from '@/utils/supabase/server'
+import { LoginButton } from '@next-auth-collections/ui-kit'
 import { Button } from '@next-auth-collections/ui-kit'
+import { cn } from '@next-auth-collections/shared'
 
-export default async function Page() {
-  const supabase = await createClient()
+const font = Poppins({
+  subsets: ['latin'],
+  weight: ['600'],
+})
 
-  const { data } = await supabase.auth.getSession()
-
-  if (!data.session) {
-    return redirect('/auth/sign-in')
-  }
-
+export default function Page() {
   return (
-    <div className="h-screen">
-      <Button>Click</Button>
-    </div>
+    <main className="flex h-full flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-800">
+      <div className="space-y-6 text-center">
+        <h1
+          className={cn(
+            'text-6xl font-semibold text-white drop-shadow-md',
+            font.className,
+          )}
+        >
+          🔐 Auth
+        </h1>
+        <p className="text-lg text-white">
+          A simple authentication service by Next.js
+        </p>
+        <div>
+          <LoginButton>
+            <Button variant="secondary" size="lg">
+              Sign In
+            </Button>
+          </LoginButton>
+        </div>
+      </div>
+    </main>
   )
 }

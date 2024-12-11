@@ -1,7 +1,7 @@
 import { createServerClient } from '@supabase/ssr'
 import { type NextRequest, NextResponse } from 'next/server'
 
-const publicRoutes = ['/auth/sign-in', '/auth/sign-up', '/404']
+const publicRoutes = ['/auth/login', '/auth/register', '/404']
 
 export const updateSession = async (request: NextRequest) => {
   // This `try/catch` block is only here for the interactive tutorial.
@@ -43,11 +43,11 @@ export const updateSession = async (request: NextRequest) => {
 
     // protected routes
     if (!publicRoutes.includes(request.nextUrl.pathname) && !session) {
-      return NextResponse.redirect(new URL('/auth/sign-in', request.url))
+      return NextResponse.redirect(new URL('/auth/login', request.url))
     }
 
     if (publicRoutes.includes(request.nextUrl.pathname) && session) {
-      return NextResponse.redirect(new URL('/', request.url))
+      return NextResponse.redirect(new URL('/settings', request.url))
     }
 
     return response

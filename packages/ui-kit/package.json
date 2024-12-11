@@ -1,29 +1,31 @@
 {
   "name": "@next-auth-collections/ui-kit",
   "version": "1.0.0",
-  "description": "Basic UI components for NextAuth Collections",
   "type": "module",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "development": "./src/index.ts",
-      "default": "./src/index.ts",
-      "//default": "./dist/index.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./styles": {
+      "default": "./src/styles/index.css"
     }
   },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "build": "unbuild",
     "clean": "rm -rf dist",
     "prepublishOnly": "pnpm run build"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -32,8 +34,9 @@
   },
   "dependencies": {
     "@next-auth-collections/shared": "workspace:*",
-    "class-variance-authority": "^0.7.1",
+    "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.468.0"
   }
 }
