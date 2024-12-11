@@ -18,11 +18,6 @@ packages.forEach((pkg) => {
   }
 })
 
-console.log(
-  'tailwindPackages',
-  tailwindPackages.map((item) => path.join(item, 'src/**/*.{ts,tsx}')),
-)
-
 export default {
   content: [
     './index.html',

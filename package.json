@@ -8,11 +8,13 @@
   "scripts": {
     "postinstall": "pnpm -r run stub --if-present",
     "build": "unbuild",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "dev:supabase": "pnpm -F @next-auth-collections/supabase run dev"
   },
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "@next-auth-collections/ui-kit": "workspace:*"
   },
   "devDependencies": {
     "@next-auth-collections/prettier-config": "workspace:*",

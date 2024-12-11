@@ -6,7 +6,8 @@
   "files": [
     "base.json",
     "node.json",
-    "web.json"
+    "web.json",
+    "library.json"
   ],
   "keywords": [],
   "author": "",
